@@ -1,0 +1,115 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"
+        xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="WpfUI.UpdateTestWindow"
+        mc:Ignorable="d"
+        Title="UpdateTestWindow" Height="500" Width="750" Icon="images\lamed.jpg">
+    <Window.Resources>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="Margin"
+                    Value="10,10,10.4,9.8"/>
+            <Setter Property="FontSize"
+              Value="16" />
+            <Setter Property="FontFamily"
+              Value="Consolas" />
+            <Setter Property="FontWeight"
+              Value="Regular" />
+            <Setter Property="Foreground"
+              Value="DarkBlue" />
+            <Setter Property="BorderBrush"
+              Value="White" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontFamily="Gabriola" Text="Update test:" FontSize="45" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="DarkBlue"/>
+        <Button x:Name="updateButton" FontFamily="Gabriola" Content="Update"  Grid.Row="2" FontSize="40" FontWeight="Bold" Margin="3" Foreground="#FFF4EFEF" Background="DarkBlue" Click="Update_Button_Click" />
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="testDetailsGrid"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="car Type Test:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                <TextBlock x:Name="carTypeTestTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="4" Text="{Binding carTypeTest}" VerticalAlignment="Center"/>
+                <Label Content="Is accessible&#x0a;for handicapped:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                <CheckBox x:Name="isAccessibleForHandicappedCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsAccessibleForHandicapped, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="5" VerticalAlignment="Center" IsEnabled="False"/>
+                <Label Content="Choose test by&#x0a;test code:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                <ComboBox x:Name="testCodeComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="Auto" SelectedItem="{Binding TestCode}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" SelectionChanged="TestCodeComboBox_SelectionChanged"/>
+                <Label Content="Test Date Time:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                <TextBlock x:Name="testDateTimeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="3" Text="{Binding TestDateTime}" VerticalAlignment="Center"/>
+                <Label Content="Tester Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                <TextBlock x:Name="testerIdTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="2" Text="{Binding TesterId}" VerticalAlignment="Center"/>
+                <Label Content="Trainee Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                <TextBlock x:Name="traineeIdTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" Text="{Binding TraineeId}" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid x:Name="testScoresGrid" Grid.Column="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3.9*"/>
+                </Grid.RowDefinitions>
+                <Label Content="The test score:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                <Label Content="Tester note:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                <Grid Grid.ColumnSpan="2"  Grid.Row="2" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="4*"/>
+                    </Grid.RowDefinitions>
+                    <Grid x:Name="CriteriaGrid" Grid.Row="1" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Distance keeping:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="distanceCheckboc" Content="" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center"/>
+                        <Label Content="Reverse parking:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="reverseCheckboc" Content="" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center"/>
+                        <Label Content="Mirrors looking:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="mirrorsCheckboc" Content="" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center"/>
+                        <Label Content="Signaling:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="signalingCheckboc" Content="" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center"/>
+                        <Label Content="Traffic signs:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                        <CheckBox x:Name="trafficCheckboc" Content="" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center"/>
+
+                    </Grid>
+                    <Label Content="Criteria of the test:" Grid.Column="0" HorizontalAlignment="Left" Margin="3"  VerticalAlignment="Bottom" FontWeight="Bold"/>
+                </Grid>
+                <CheckBox x:Name="scoreCheckbox" Content="" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="0" VerticalAlignment="Center"/>
+                <TextBox x:Name="noteTextbox" HorizontalAlignment="Center" Height="35" Margin="132,15,23,10" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="198" Grid.ColumnSpan="2"/>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>

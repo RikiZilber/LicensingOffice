@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"
+        mc:Ignorable="d"
+        Title="Main Window" Height="750" Width="850"  Icon="images\lamed.jpg">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="welcomeImage"  Grid.Row="1" Source="images/welcome.jpg" Margin="0,0,0.2,119.8" Grid.RowSpan="2" />
+        <TextBlock x:Name="textBlockWelcome"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Gabriola" TextWrapping="Wrap" FontSize="65" Foreground="#FF665B53" Margin="69,16,36.2,8" Height="96" Width="738" ><Run Text="welcome to Licensing Office System"/><Run FlowDirection="RightToLeft" Text="!"/></TextBlock>
+        <Grid  Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Trainee Options" FontFamily="Gabriola" Margin="9.8,27,9.6,22" Grid.Column="0" Background="#FF998A80" Foreground="#FFF1F3F4" FontSize="30" FontWeight="Bold" Click="Trainee_Options_Button_Click" />
+            <Button Content="Tester Options" FontFamily="Gabriola" Margin="9.8,27,9.6,22" Grid.Column="1" Background="#FF998A80" Foreground="#FFF1F3F4" FontSize="30" FontWeight="Bold" Click="Tester_Window_Button_Click" />
+            <Button Content="Test Options" FontFamily="Gabriola" Margin="9.8,27,9.6,22" Grid.Column="2" Background="#FF998A80" Foreground="#FFF1F3F4" FontSize="30" FontWeight="Bold" Click="Test_Window_Button_Click" />
+            <Button Content="More..." FontFamily="Gabriola" Margin="9.8,27,9.6,22" Grid.Column="3" Background="#FF998A80" Foreground="#FFF1F3F4" FontSize="35" FontWeight="Bold" Click="More_Window_Button_Click" />
+        </Grid>
+        <Image x:Name="pause" Cursor="Hand" HorizontalAlignment="Left" Height="53" Margin="10,10,0,0" VerticalAlignment="Top" Width="51" Source="images/pause.jpg" MouseLeftButtonDown="Pause_MouseLeftButtonDown"/>
+
+    </Grid>
+</Window>

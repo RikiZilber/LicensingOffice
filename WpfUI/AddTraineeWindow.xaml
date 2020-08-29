@@ -1,0 +1,144 @@
+﻿<Window 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"
+        xmlns:BE="clr-namespace:BE;assembly=BE" 
+        x:Class="WpfUI.AddTraineeWindow"
+        mc:Ignorable="d"
+        Validation.Error="validation_Error"
+        Title="Add Trainee Window" Height="780" Width="700"  Icon="images\lamed.jpg" >
+    <Window.Resources>
+        <local:ImageConverter x:Key="ImageConverter"/>
+        <Style TargetType="Label">
+            <Setter Property="Margin"
+                    Value="10,10,10.4,9.8"/>
+            <Setter Property="FontSize"
+              Value="16" />
+            <Setter Property="FontFamily"
+              Value="Consolas" />
+            <Setter Property="FontWeight"
+              Value="Regular" />
+            <Setter Property="Foreground"
+              Value="DarkBlue" />
+            <Setter Property="BorderBrush"
+              Value="White" />
+        </Style>
+    </Window.Resources>
+    <Grid  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontFamily="Gabriola"  Text="Add new trainee" FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="DarkBlue"/>
+        <Button x:Name="addButton" Content="Add" FontFamily="Gabriola"  Grid.Row="2" FontSize="45" FontWeight="Bold" Margin="5,10,4.4,10" Foreground="#FFF4EFEF" Background="DarkBlue" Click="Add_Button_Click"  />
+        <Grid  Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="traineesDetailsGrid" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Birth Date:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+                <DatePicker x:Name="birthDateDatePicker" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" SelectedDate="{Binding BirthDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+                <Label Content="Car Type Trainee:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+                <ComboBox x:Name="carTypeTraineeComboBox" Grid.Column="1" SelectedItem="{Binding CarTypeTrainee}" HorizontalAlignment="Left" Height="Auto"  Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120"/>
+                <Label Content="Cell Phone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+                <TextBox x:Name="cellPhoneTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2"  VerticalAlignment="Center" Width="120" GotFocus="CellPhoneTextBox_GotFocus" LostFocus="CellPhoneTextBox_LostFocus"/>
+                <Label x:Name="cellPhoneLable" Content="" FontSize="11" Foreground="Red" HorizontalAlignment="Left" Margin="111,24.4,0,0" Grid.Row="2" VerticalAlignment="Top" Width="280" Height="22" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Content="First Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center"/>
+                <TextBox x:Name="firstNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120" LostFocus="FirstNameTextBox_LostFocus" GotFocus="FirstNameTextBox_GotFocus"/>
+                <Label x:Name="firstNameLable" Content=""  FontSize="11" Foreground="Red" HorizontalAlignment="Left" Margin="111,24.4,0,0" Grid.Row="3" VerticalAlignment="Top" Width="280" Height="22" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Content="gear Boxtrainee:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center"/>
+                <ComboBox x:Name="gearBoxtraineeComboBox" Grid.Column="1" SelectedItem="{Binding gearBoxtrainee}" HorizontalAlignment="Left" Height="Auto"  Margin="3" Grid.Row="4" VerticalAlignment="Center" Width="120"/>
+                <Label Content="Gender Trainee:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center"/>
+                <ComboBox x:Name="genderTraineeComboBox" Grid.Column="1" SelectedItem="{Binding GenderTrainee}" HorizontalAlignment="Left" Height="Auto"  Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120"/>
+                <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center"/>
+                <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" VerticalAlignment="Center" Width="120" LostFocus="IdTextBox_LostFocus" GotFocus="IdTextBox_GotFocus"/>
+                <Label x:Name="idLable" Content="" FontSize="11" Foreground="Red" HorizontalAlignment="Left" Margin="111,24.4,0,0" Grid.Row="6" VerticalAlignment="Top" Width="280" Height="22" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Content="Is Handicapped:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                <CheckBox x:Name="isHandicappedCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding IsHandicapped, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="7" VerticalAlignment="Center"/>
+                <Label Content="is Ultra Ortodox:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                <CheckBox x:Name="isUltraOrtodoxCheckBox" Content="" Grid.Column="1" HorizontalAlignment="Left" IsChecked="{Binding isUltraOrtodox, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="3" Grid.Row="8" VerticalAlignment="Center"/>
+                <Label Content="Last Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="9" VerticalAlignment="Center"/>
+                <TextBox x:Name="lastNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="9"  VerticalAlignment="Center" Width="120" LostFocus="LastNameTextBox_LostFocus" GotFocus="LastNameTextBox_GotFocus"/>
+                <Label x:Name="lastNameLable" Content="" FontSize="11" Foreground="Red" HorizontalAlignment="Left" Margin="111,24.4,0,0" Grid.Row="9" VerticalAlignment="Top" Width="280" Height="22" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Content="Num Lessons:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="10" VerticalAlignment="Center"/>
+                <TextBox x:Name="numLessonsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="10"  VerticalAlignment="Center" Width="120" LostFocus="NumLessonsTextBox_LostFocus" GotFocus="NumLessonsTextBox_GotFocus"/>
+                <Label x:Name="numLessonsLable" Content="" FontSize="11" Foreground="Red" HorizontalAlignment="Left" Margin="111,24.4,0,0" Grid.Row="10" VerticalAlignment="Top" Width="280" Height="22" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Content="Personal Status:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="11" VerticalAlignment="Center"/>
+                <ComboBox x:Name="personalStatusComboBox" Grid.Column="1" SelectedItem="{Binding PersonalStatus}" HorizontalAlignment="Left" Height="Auto"  Margin="3" Grid.Row="11" VerticalAlignment="Center" Width="120"/>
+                <Label Content="School Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="12" VerticalAlignment="Center"/>
+                <TextBox x:Name="schoolNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="12"  VerticalAlignment="Center" Width="120" LostFocus="SchoolNameTextBox_LostFocus" GotFocus="SchoolNameTextBox_GotFocus"/>
+                <Label x:Name="schoolNameLable" Content="" FontSize="11" Foreground="Red" HorizontalAlignment="Left" Margin="111,24.4,0,0" Grid.Row="12" VerticalAlignment="Top" Width="280" Height="22" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Content="Teacher Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="13" VerticalAlignment="Center"/>
+                <TextBox x:Name="teacherNameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="13"  VerticalAlignment="Center" Width="120" LostFocus="TeacherNameTextBox_LostFocus" GotFocus="TeacherNameTextBox_GotFocus"/>
+                <Label x:Name="teacherNameLable" Content="" FontSize="11" Foreground="Red" HorizontalAlignment="Left" Margin="111,24.4,0,0" Grid.Row="13" VerticalAlignment="Top" Width="280" Height="22" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <Label Content="Age trainee:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="14" VerticalAlignment="Center"/>
+                <TextBlock x:Name="ageTraineeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="14" Text="{Binding AgeTrainee}" VerticalAlignment="Center"/>
+
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="AddressGrid"   Grid.Row="1" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" MinHeight="50"/>
+                        <RowDefinition Height="Auto" MinHeight="50"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Content="City:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,10,0,9" Grid.Row="0" VerticalAlignment="Center" Height="29" Width="54"/>
+                    <TextBox x:Name="cityTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="2.6,13,0,12" Grid.Row="0"  VerticalAlignment="Center" Width="120"  LostFocus="CityTextBox_LostFocus" GotFocus="CityTextBox_GotFocus"/>
+                    <Label x:Name="cityLable" Content="" FontSize="11" Foreground="Red" HorizontalAlignment="Left" Margin="10,34,-1,0" Grid.Row="0" VerticalAlignment="Top" Width="292" Height="22" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    <Label Content="House Number:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,5,0,5.2" Grid.Row="1" VerticalAlignment="Center" Height="29" Width="125"/>
+                    <TextBox x:Name="houseNumberTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="2.6,8,0,8.2" Grid.Row="1"  VerticalAlignment="Center" Width="120"  LostFocus="HouseNumberTextBox_LostFocus" GotFocus="HouseNumberTextBox_GotFocus"/>
+                    <Label x:Name="houseLable" Content="" FontSize="11" Foreground="Red" HorizontalAlignment="Left" Margin="10,34,-1,0" Grid.Row="1" VerticalAlignment="Top" Width="292" Height="22" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                    <Label Content="Street:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,5.8,0,3.6" Grid.Row="2" VerticalAlignment="Center" Height="29" Width="72"/>
+                    <TextBox x:Name="streetTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="2.6,8.8,0,6.6" Grid.Row="2"  VerticalAlignment="Center" Width="120" LostFocus="StreetTextBox_LostFocus" GotFocus="StreetTextBox_GotFocus" />
+                    <Label x:Name="streetLable" Content="" FontSize="11" Foreground="Red" HorizontalAlignment="Left" Margin="10,34,-1,0" Grid.Row="2" VerticalAlignment="Top" Width="292" Height="22" Grid.ColumnSpan="2"/>
+                </Grid>
+                <Border Margin="20" BorderThickness="3" BorderBrush="DarkBlue" >
+                    <StackPanel>
+                        <Image x:Name="traineeImage" Source="images/symbol.jpg"
+                               MinHeight="100" MinWidth="100"
+                               Stretch="Fill" Height="247"  >
+                            <!--<Image.Source>
+                                <BitmapImage UriSource="{Binding Path=ImageSource}"  />
+                            </Image.Source>-->
+                        </Image>
+                    </StackPanel>
+                </Border>
+
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

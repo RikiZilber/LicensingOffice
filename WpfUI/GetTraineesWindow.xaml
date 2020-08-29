@@ -1,0 +1,130 @@
+﻿<Window x:Class="WpfUI.GetTraineesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:be="clr-namespace:BE;assembly=BE"
+        xmlns:local="clr-namespace:WpfUI"
+        mc:Ignorable="d"
+        Title="Get Trainees Window" Height="600" Width="1300"  Icon="images\lamed.jpg">
+    <Window.Resources>
+        <local:ImageConverter x:Key="ImageConverter"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <TextBlock FontFamily="Gabriola"  Text="All the trainees:"  FontSize="50" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="DarkBlue"   Grid.Row="0"  />
+        <DockPanel Grid.Row="1" LastChildFill="True" >
+            <Expander Header="Filtering Trainees by:" DockPanel.Dock="Top" FontWeight="Bold" >
+                <Expander.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA5CDD2" Offset="0.004"/>
+                        <GradientStop Color="#FFD3CCCC" Offset="1"/>
+                        <GradientStop Color="#FFA69C9C" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Expander.Background>
+                <StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Car Type:" FontWeight="Normal" />
+                        <ComboBox x:Name="comboBoxCarType" Width="102" Margin="3" SelectionChanged="comboBoxCarType_SelectionChanged"/>
+                        <Button x:Name="carClear" Visibility="Hidden" Content="clear choise" FontSize="10" Foreground="DarkBlue" Background="White" Margin="5" Click="CarClear_Click"/>
+                        <Border  BorderThickness="1"  Width="5" Background="#FF8593C7"/>
+                        <Label Content="Gender:" FontWeight="Normal" />
+                        <ComboBox x:Name="ComboBoxGender" Width="102" Margin="3" SelectionChanged="ComboBoxGender_SelectionChanged"/>
+                        <Button x:Name="genderClear" Visibility="Hidden" Content="clear choise" FontSize="10" Foreground="DarkBlue" Background="White" Margin="5" Click="GenderClear_Click"/>
+                        <Border  BorderThickness="1"  Width="7" Background="Black"/>
+                        <Label Content="Gear Box:" FontWeight="Normal" />
+                        <ComboBox x:Name="ComboBoxGearBox" Width="102" Margin="3" SelectionChanged="ComboBoxGearBox_SelectionChanged"/>
+                        <Button x:Name="gearBoxClear" Visibility="Hidden" Content="clear choise" FontSize="10" Foreground="DarkBlue" Background="White" Margin="5" Click="GearBoxClear_Click"/>
+                        <Border  BorderThickness="1"  Width="5" Background="#FF8593C7"/>
+                        <Label Content="School Name:" FontWeight="Normal" />
+                        <TextBox x:Name="TextBoxSchoolName" Width="50" Margin="3" TextChanged="TextBoxSchoolName_TextChanged" />
+                        <Button x:Name="schoolClear" Visibility="Hidden" Content="clear choise" FontSize="10" Foreground="DarkBlue" Background="White" Margin="5" Click="schoolClear_Click"/>
+                        <Border  BorderThickness="1"  Width="7" Background="Black"/>
+                        <Label Content="Is Handicapped:" FontWeight="Normal" />
+                        <CheckBox x:Name="CheckBoxIsHandicapped" Width="50" Margin="3" Checked="CheckBoxIsHandicapped_Checked"  />
+                        <Button x:Name="handicappedClear" Visibility="Hidden" Content="clear choise" FontSize="10" Foreground="DarkBlue" Background="White" Margin="5" Click="handicappedClear_Click"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Expander>
+            <DataGrid x:Name="TraineeDataGrid" RowHeight="70" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" ><!--d:DataContext="{d:DesignInstance be:Trainee }" >-->
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="get numbers of test">
+                        <DataGridTemplateColumn.CellTemplate >
+                            <DataTemplate>
+                                <Button x:Name="showNumOfTest" ToolTip="Push me to see how many tests this trainee has been passed" Content="num of tests" Margin="15,10,15,10"  Click="num_test_click" Foreground="White" >
+                                    <Button.Background>
+                                        <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.6,0.3">
+                                            <GradientStop Color="DarkBlue" Offset="1"/>
+                                            <GradientStop Color="#FFA5CDD2"/>
+                                        </LinearGradientBrush>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Header="Does a Trainee &#x0a;have Licence">
+                        <DataGridTemplateColumn.CellTemplate >
+                            <DataTemplate>
+                                <Button x:Name="showhaveLicence" ToolTip="Push me to see weather this trainee has licence" Content="has licence?" Margin="15,10,15,10"  Click="have_licence_click" Foreground="White" >
+                                    <Button.Background>
+                                        <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.6,0.3">
+                                            <GradientStop Color="DarkBlue" Offset="1"/>
+                                            <GradientStop Color="#FFA5CDD2"/>
+                                        </LinearGradientBrush>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--<DataGridTemplateColumn Header="Image">
+                        <DataGridTemplateColumn.CellTemplate >
+                            <DataTemplate>
+                                <Image x:Name="imageMe" Height="auto" Width="auto" Source="{Binding ImageSource, Converter={StaticResource ImageConverter}}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>-->
+                <DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Gender" Binding="{Binding GenderTrainee}"/>
+                <DataGridTextColumn Header="Birth Date" Binding="{Binding BirthDate, StringFormat='dd/MM/yyyy'}"/>
+                <DataGridTextColumn Header="Cell Phone" Binding="{Binding CellPhone}"/>
+                <DataGridTextColumn Header="Age" Binding="{Binding AgeTrainee}"/>
+                <DataGridTextColumn Header="Adress" Binding="{Binding AddressTrainee}"/>
+                <DataGridTextColumn Header="Car type" Binding="{Binding CarTypeTrainee}"/>
+                <DataGridTextColumn Header="School Name" Binding="{Binding SchoolName}"/>
+                <DataGridTextColumn Header="Teacher Name" Binding="{Binding TeacherName}"/>
+                <DataGridTextColumn Header="Num Lessons" Binding="{Binding NumLessons}"/>
+
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <Button Content="More Details" Click="more_details_click" Margin="3" Foreground="White" >
+                                <Button.Background>
+                                    <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.6,0.3">
+                                        <GradientStop Color="DarkBlue" Offset="1"/>
+                                        <GradientStop Color="#FFA5CDD2"/>
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </DockPanel>
+
+
+    </Grid>
+</Window>

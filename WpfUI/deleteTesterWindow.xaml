@@ -1,0 +1,52 @@
+﻿<Window x:Class="WpfUI.deleteTesterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"
+      xmlns:be="clr-namespace:BE;assembly=BE"
+        mc:Ignorable="d"
+        Title="Delete Tester Window" Height="450" Width="800"  Icon="images\lamed.jpg">
+    <Window.Resources>
+        <local:ImageConverter x:Key="ImageConverter"/>
+    </Window.Resources>
+
+    <Grid>
+        <DataGrid x:Name="TesterDataGrid" RowHeight="50" AutoGenerateColumns="False" IsReadOnly="True" Foreground="DarkBlue" d:DataContext="{d:DesignInstance be:Tester}" FontSize="15">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name"  Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                <DataGridTextColumn Header="Gender" Binding="{Binding GenderTester}"/>
+                <DataGridTextColumn Header="Birth Date" Binding="{Binding BirthDate, StringFormat='dd/MM/yyyy'}"/>
+                <DataGridTextColumn Header="Cell Phone" Binding="{Binding CellPhone}"/>
+                <DataGridTextColumn Header="Car Type" Binding="{Binding CarTypeTester}"/>
+
+                <!--<DataGridTemplateColumn Header="Image">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <Image Height="50" Width="50" Source="{Binding ImageSource, Converter={StaticResource ImageConverter}}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>-->
+
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <Button Content="More Details" Click="more_details_click"  Margin="3" Foreground="White" Background="#FF302099"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate>
+                            <Button Content="Delete" Click="delete_Tester_click" Foreground="White" Margin="3" Background="#FF302099"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

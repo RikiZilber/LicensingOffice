@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfUI.MoreWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"
+        mc:Ignorable="d"
+        Title="More Window" Height="600" Width="750" Icon="images\lamed.jpg" >
+    <Window.Resources>
+        <Style x:Key="myButtonStyle2"  TargetType="Button">
+            <Setter Property="Margin"
+                    Value="10,10,10.4,9.8"/>
+            <Setter Property="FontSize"
+              Value="20" />
+            <Setter Property="FontFamily"
+              Value="Gabriola" />
+            <Setter Property="FontWeight"
+              Value="Regular" />
+            <Setter Property="Foreground"
+              Value="White" />
+            <Setter Property="BorderBrush"
+              Value="White" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.6,0.3">
+                        <GradientStop Color="#FFF4EFEF" Offset="1"/>
+                        <GradientStop Color="#FFF1D864"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image x:Name="traineeImage" Grid.Row="0"  Source="images/more.jpg"  />
+        <Grid Grid.Row="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource myButtonStyle2}" Content="Get Percents of   &#x0a;passed test trainees "  Grid.Column="0" Click="Percent_of_passed_test_Click" >
+            </Button>
+            <Button Style="{StaticResource myButtonStyle2}" Content="Get number of &#x0a;trainees passed a &#x0a;test in specific year"  Grid.Column="1" Click="Button_Click"  >
+            </Button>
+            <Button Style="{StaticResource myButtonStyle2}" Content="Get the tester &#x0a;with the maximum &#x0a;percents of passing" Grid.Column="2" Click="Maximum_percent_passing_Click"  >
+            </Button>
+            <Button Style="{StaticResource myButtonStyle2}"  Content="Go For Grouping &#x0a;options" Grid.Column="3" Click="Grouping_Button_Click" >
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

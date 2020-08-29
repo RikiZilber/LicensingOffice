@@ -1,0 +1,54 @@
+﻿<Window x:Class="WpfUI.TesterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"
+        mc:Ignorable="d"
+        Title="Tester Window" Height="450" Width="800"  Icon="images\lamed.jpg">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="10,10,10.4,9.8"/>
+            <Setter Property="FontSize"
+              Value="30" />
+            <Setter Property="FontFamily"
+              Value="Gabriola" />
+            <Setter Property="FontWeight"
+              Value="Regular" />
+            <Setter Property="Foreground"
+              Value="White" />
+            <Setter Property="BorderBrush"
+              Value="White" />
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.9,1" StartPoint="0.6,0.3">
+                        <GradientStop Color="#FFF4EFEF" Offset="1"/>
+                        <GradientStop Color="#FF6A713D"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Source="images/tester1.jpg"/>
+        <Grid Grid.Row="1" Margin="0,4.8,-0.4,-5" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Add Tester" Grid.Column="0" Click="Add_Tetser_Button_Click"/>
+            <Button Content="Update Tester" Grid.Column="1" Click="update_Button_Click"/>
+            <Button Content="Delete Tester" Grid.Column="2" Click="delete_Button_Click"/>
+            <Button Content="Testers List" Grid.Column="3" Click="Get_Testers_Button_Click"/>
+
+        </Grid>
+
+    </Grid>
+</Window>
