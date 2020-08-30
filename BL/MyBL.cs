@@ -9,6 +9,7 @@ using System.IO;
 using System.Net;
 using System.Xml;
 using System.Threading;
+using System.Globalization;
 
 namespace BL
 {
@@ -42,7 +43,7 @@ namespace BL
                     Id = "111111111",
                     LastName = "chohen",
                     FirstName = "avi",
-                    BirthDate = DateTime.Parse("13.2.1970"),
+                    BirthDate = DateTime.ParseExact("13.2.1970", "dd.mm.yyyy", CultureInfo.InvariantCulture),
                     GenderTester = Gender.Male,
                     CellPhone = "0511111111",
                     AddressTester = new Address() { Street = "hashomer", City = "Bnei Brak", HouseNumber = 16 },
@@ -68,7 +69,7 @@ namespace BL
                 {
                     LastName = "levi",
                     FirstName = "efrat",
-                    BirthDate = DateTime.Parse("13.2.1975"),
+                    BirthDate = DateTime.ParseExact("13.2.1975", "dd.mm.yyyy", CultureInfo.InvariantCulture),
                     GenderTester = Gender.Female,
                     CellPhone = "0522222222",
                     AddressTester = new Address() { Street = "hashomer", City = "Bnei Brak", HouseNumber = 20 },
@@ -95,7 +96,7 @@ namespace BL
                 {
                     LastName = "catzt",
                     FirstName = "yossi",
-                    BirthDate = DateTime.Parse("13.2.1960"),
+                    BirthDate = DateTime.ParseExact("13.2.1960", "dd.mm.yyyy", CultureInfo.InvariantCulture),
                     GenderTester = Gender.Male,
                     CellPhone = "0533333333",
                     AddressTester = new Address() { Street = "hapoel", City = "Ramat Gan", HouseNumber = 13 },
@@ -121,7 +122,7 @@ namespace BL
                 {
                     LastName = "gill",
                     FirstName = "chaim",
-                    BirthDate = DateTime.Parse("28.6.1975"),
+                    BirthDate = DateTime.ParseExact("28.6.1975", "dd.mm.yyyy", CultureInfo.InvariantCulture),
                     GenderTester = Gender.Male,
                     CellPhone = "0511112211",
                     AddressTester = new Address() { Street = "hashomer", City = "Bnei Brak", HouseNumber = 30 },
@@ -154,7 +155,7 @@ namespace BL
                 {
                     LastName = "zilber",
                     FirstName = "shalom",
-                    BirthDate = DateTime.Parse("28.1.1995"),
+                    BirthDate = DateTime.ParseExact("28.1.1995", "dd.mm.yyyy", CultureInfo.InvariantCulture),
                     GenderTrainee = Gender.Male,
                     CellPhone = "0544444444",
                     AddressTrainee = new Address() { Street = "hagiborim", City = "RamatGan", HouseNumber = 5 },
@@ -173,7 +174,7 @@ namespace BL
                 {
                     LastName = "rachman",
                     FirstName = "roni",
-                    BirthDate = DateTime.Parse("30.1.1998"),
+                    BirthDate = DateTime.ParseExact("30.1.1998", "dd.mm.yyyy", CultureInfo.InvariantCulture),
                     GenderTrainee = Gender.Male,
                     CellPhone = "0555555555",
                     AddressTrainee = new Address() { Street = "hertzel", City = "TelAviv", HouseNumber = 20 },
@@ -191,7 +192,7 @@ namespace BL
                 {
                     LastName = "shushan",
                     FirstName = "shira",
-                    BirthDate = DateTime.Parse("28.1.2000"),
+                    BirthDate = DateTime.ParseExact("28.1.2000", "dd.mm.yyyy", CultureInfo.InvariantCulture),
                     GenderTrainee = Gender.Female,
                     CellPhone = "0566666666",
                     AddressTrainee = new Address() { Street = "BenYehuda", City = "Yahud", HouseNumber = 50 },
