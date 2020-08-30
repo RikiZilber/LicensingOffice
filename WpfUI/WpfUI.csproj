@@ -306,5 +306,9 @@
   <ItemGroup>
     <Resource Include="images\more.JPG" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="sound\CarSongs.mp3" />
+    <None Include="sound\CarSongs.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

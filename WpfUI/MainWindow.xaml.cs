@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
-
+using Path = System.IO.Path;
 
 namespace WpfUI
 {
@@ -22,11 +22,16 @@ namespace WpfUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        System.Media.SoundPlayer player = new System.Media.SoundPlayer(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"CarSongs.wav")); // to get relative location
+        // System.Media.SoundPlayer player = new System.Media.SoundPlayer(System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"CarSongs.wav")); // to get relative location
+        System.Media.SoundPlayer player;
+
         bool soundFlag = true;
 
         public MainWindow()
         {
+            
+            player = new System.Media.SoundPlayer(Properties.Resources.CarSongs);
+
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             player.PlayLooping();
