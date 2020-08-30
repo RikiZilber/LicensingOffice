@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.168
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL", "UI\PL.csproj", "{53878426-D081-46F1-90AD-3BEDEF378AAD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{7A087344-4C36-4D11-B19B-631ABFC7EDC5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{ED6D111F-1C54-4381-AF4F-8DE0C075242D}"
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{53878426-D081-46F1-90AD-3BEDEF378AAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53878426-D081-46F1-90AD-3BEDEF378AAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53878426-D081-46F1-90AD-3BEDEF378AAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53878426-D081-46F1-90AD-3BEDEF378AAD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A087344-4C36-4D11-B19B-631ABFC7EDC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7A087344-4C36-4D11-B19B-631ABFC7EDC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A087344-4C36-4D11-B19B-631ABFC7EDC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
